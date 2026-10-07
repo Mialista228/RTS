@@ -44,7 +44,11 @@ public class UnitData : ScriptableObject
     public int unitPriority = 0;
     public UnitStat moveSpeed = 5f;
     public UnitStat baseHitPoints = 800f;
+    public UnitStat baseHitPointRegen = 1f;
+    public UnitStat baseHitPointPercentRegen = 0.1f;
     public UnitStat baseMana = 200f;
+    public UnitStat baseManaRegen = 1f;
+    public UnitStat baseManaPercentRegen = 0.1f;
     public UnitStat basePhysicalDefense = 3f;
     public UnitStat baseMagicDefense = 3f;
     public float visionDistance = 5f;
@@ -97,7 +101,9 @@ public class UnitData : ScriptableObject
         }
     }
 
-    public float MaxHitPoints => heroUnit ? baseHitPoints.GetValue() + (strength.GetValue() * hpPerStrength) : baseHitPoints.GetValue();
+    public float MaxHitPoints(int level = 1) => heroUnit ? baseHitPoints.GetValue(level) + (strength.GetValue(level) * hpPerStrength) : baseHitPoints.GetValue(level);
+
+    public float MaxMana(int level = 1) => heroUnit ? baseMana.GetValue(level) + (intelligence.GetValue(level) * manaPerIntelligence) : baseMana.GetValue(level);
 
     public float PhysicalDefense => heroUnit ? basePhysicalDefense.GetValue() + (agility.GetValue() * armorPerAgility) : basePhysicalDefense.GetValue();
 

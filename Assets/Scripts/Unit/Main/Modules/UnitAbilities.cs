@@ -6,6 +6,10 @@ using UnityEngine.Events;
 public class UnitAbilities : UnitModule
 {
     [Header("Module Settings")]
+    [SerializeField] private float mana;
+    [SerializeField] private float maxMana;
+    [SerializeField] private float manaRegenSpeed = 1f;
+    [SerializeField] private float manaRegenPercentSpeed = 0.1f;
     [SerializeField] private Transform shotPoint;
     [SerializeField] private AbilityObject[] customAbilityObjects;
     [SerializeField] private AbilityAimObject[] abilityAimObjects;
@@ -52,6 +56,8 @@ public class UnitAbilities : UnitModule
 
     private bool isAiming;
 
+    private float deltaTimeRegen = 1f;
+
     public Transform ShotPoint => shotPoint;
 
     public AbilityDefaultRuntimeProperties[] RegisteredAbilities => abilityRuntimeProperties;
@@ -61,6 +67,10 @@ public class UnitAbilities : UnitModule
     public int RequiredLevel { get; private set; }
 
     public int CurrentUsedLevel { get { int result = 0; if (abilityRuntimeProperties != null || abilityRuntimeProperties.Length > 0) for (int i = 0; i < abilityRuntimeProperties.Length; i++) result += abilityRuntimeProperties[i].level; return result; } }
+
+    public float Mana => mana;
+
+    public float MaxMana => maxMana;
 
     public GameObject SpawnObject(GameObject prefab, Vector3 pos, Quaternion rot)
     {
@@ -77,6 +87,12 @@ public class UnitAbilities : UnitModule
         onUnitAttackBeforeFrame = new List<UnityAction<Transform>>(abilitiesCount);
 
         registeredCustomAbilityObjects = new Dictionary<string, GameObject>();
+
+        maxMana = unit.MaxMana;
+        mana = maxMana;
+
+        manaRegenSpeed = unit.ManaRegen;
+        manaRegenPercentSpeed = unit.ManaRegenPercent;
 
         for (int i = 0; i < customAbilityObjects.Length; i++)
         {
@@ -192,10 +208,27 @@ public class UnitAbilities : UnitModule
     }
 
     public override void OnStart() { }
+    void RegenMana(float deltaInterval)
+    {
+        if (mana < maxMana)
+        {
+            deltaTimeRegen -= deltaInterval;
+            if (deltaTimeRegen <= 0f)
+            {
+                FillMana(manaRegenSpeed + maxMana * manaRegenPercentSpeed / 100f);
+                deltaTimeRegen = 1f;
+            }
+        }
+    }
+    public void FillMana(float amount)
+    {
+        mana += amount;
+    }
     public override void OnTick(float deltaInterval)
     {
         ReloadAbility(deltaInterval);
         ChargableAbility(deltaInterval);
+        RegenMana(deltaInterval);
 
         if (!isAiming) return;
 
@@ -309,19 +342,26 @@ public class UnitAbilities : UnitModule
             {
                 if (abilities[i].abilityPassive == false)
                 {
-                    if (abilityRuntimeProperties[i].cooldown <= 0f)
+                    if (abilities[i].manaCost < mana)
                     {
-                        if (abilities[i].chargableAbility == false || (abilities[i].chargableAbility && abilityRuntimeProperties[i].charges > 0))
-                            if (abilities[i].needToAim)
-                                AimAbility(abilities[i]);
-                            else
-                                abilities[i].Activate(unit);
+                        if (abilityRuntimeProperties[i].cooldown <= 0f)
+                        {
+                            if (abilities[i].chargableAbility == false || (abilities[i].chargableAbility && abilityRuntimeProperties[i].charges > 0))
+                                if (abilities[i].needToAim)
+                                    AimAbility(abilities[i]);
+                                else
+                                    abilities[i].Activate(unit);
+                        }
                     }
                 }
             }
         }
     }
 
+    public void ReduceMana(float value)
+    {
+        mana -= value;
+    }
     public void AimAbility(UnitAbility ability)
     {
         StartAim(ability.aimName, (direction) => { ability.Aim(unit, direction); });

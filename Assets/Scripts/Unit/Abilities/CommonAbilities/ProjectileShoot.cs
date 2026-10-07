@@ -4,6 +4,7 @@ using UnityEngine;
 public class ProjectileShoot : UnitAbility
 {
     [Header("Custom Properties")]
+    [SerializeField] private bool stopWhenCast;
     [SerializeField] private string shotAnimation;
     [SerializeField] private string shotVFX;
     [SerializeField] private string shotSFX;
@@ -24,6 +25,11 @@ public class ProjectileShoot : UnitAbility
     }
     public void DelayedShoot(Unit caster, Vector3 direction)
     {
+        if (stopWhenCast && caster != null && caster.Movement != null)
+        {
+            caster.Movement.Stop();
+        }
+        caster.Abilities.ReduceMana(manaCost);
         caster.Abilities.AbilityUsed(abilityName, waitTime);
         if (caster.Movement is UnitMovement movement) movement.DelayedStop(waitTime);
 

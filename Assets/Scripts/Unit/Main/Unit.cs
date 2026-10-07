@@ -214,9 +214,13 @@ public class Unit : EruBehaviour, IUnit
     #region Unit Health Stats
 
     public float Health => DamageReceiver != null ? DamageReceiver.CurrentHP : 0f;
-    public float MaxHealth => unitData ? (Stats != null ? Stats.MaxHealth : unitData.MaxHitPoints) : (DamageReceiver != null ? DamageReceiver.MaxHP : 0f);
-    public float Mana => 200f;
-    public float MaxMana => 200f;
+    public float MaxHealth => unitData ? (Stats != null ? Stats.MaxHealth : unitData.MaxHitPoints()) : (DamageReceiver != null ? DamageReceiver.MaxHP : 0f);
+    public float Mana => Abilities != null ? Abilities.Mana : 0f;
+    public float MaxMana => unitData ? (Stats != null ? Stats.MaxMana : unitData.MaxMana()) : (Abilities != null ? Abilities.MaxMana : 0f);
+    public float HealthRegen => unitData ? (Stats != null ? Stats.HealthRegen : unitData.baseHitPointRegen) : 1f;
+    public float HealthRegenPercent => unitData ? (Stats != null ? Stats.HealthRegenPercent : unitData.baseHitPointPercentRegen) : .1f;
+    public float ManaRegen => unitData ? (Stats != null ? Stats.ManaRegen : unitData.baseManaRegen) : 1f;
+    public float ManaRegenPercent => unitData ? (Stats != null ? Stats.ManaRegenPercent : unitData.baseManaPercentRegen) : .1f;
 
     public float PhysicalDefense
     {

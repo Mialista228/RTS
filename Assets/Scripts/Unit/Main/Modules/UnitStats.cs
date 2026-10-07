@@ -5,6 +5,7 @@ public class UnitStats : UnitModule
     private UnitData unitData => unit ? unit.UnitData : null;
     private UnitLevel Level => unit ? unit.Level : null;
     private IDamageReceiver DamageReceiver => unit ? unit.DamageReceiver : null;
+    private UnitAbilities Abilities => unit ? unit.Abilities : null;
     #region Unit Combat Stats
 
     public UnitAttackStats GetUnitAttackStats(DamageType damageType)
@@ -134,9 +135,13 @@ public class UnitStats : UnitModule
     #region Unit Health Stats
 
     public float Health => DamageReceiver != null ? DamageReceiver.CurrentHP : 0f;
-    public float MaxHealth => unitData ? unitData.MaxHitPoints : (DamageReceiver != null ? DamageReceiver.MaxHP : 0f);
-    public float Mana => 200f;
-    public float MaxMana => 200f;
+    public float MaxHealth => unitData ? unitData.MaxHitPoints() : (DamageReceiver != null ? DamageReceiver.MaxHP : 0f);
+    public float Mana => Abilities != null ? Abilities.Mana : 0f;
+    public float MaxMana => unitData ? unitData.MaxMana() : (Abilities != null ? Abilities.MaxMana : 0f);
+    public float HealthRegen => unitData ? unitData.baseHitPointRegen.GetValue(Level.CurrentLevel) : 1f;
+    public float HealthRegenPercent => unitData ? unitData.baseHitPointPercentRegen.GetValue(Level.CurrentLevel) : .1f;
+    public float ManaRegen => unitData ? unitData.baseManaRegen.GetValue(Level.CurrentLevel) : 1f;
+    public float ManaRegenPercent => unitData ? unitData.baseManaPercentRegen.GetValue(Level.CurrentLevel) : .1f;
 
     public float PhysicalDefense
     {

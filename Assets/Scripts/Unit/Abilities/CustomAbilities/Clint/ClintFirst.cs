@@ -51,7 +51,11 @@ public class ClintFirst : UnitAbility
                 }
             }
         }
-
+        if (caster != null && caster.Movement != null)
+        {
+            caster.Movement.Stop();
+        }
+        caster.Abilities.ReduceMana(manaCost);
         AnimationVFX(caster);
         VFX(caster);
         SFX(caster);

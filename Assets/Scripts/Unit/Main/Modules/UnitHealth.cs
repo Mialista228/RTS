@@ -6,6 +6,8 @@ public class UnitHealth : UnitModule, IDamageReceiver
     [Header("Module Settings")]
     [SerializeField] private float hitPoints = 800f;
     [SerializeField] private float maxHitPoints = 800f;
+    [SerializeField] private float hitPointsRegenSpeed = 1f;
+    [SerializeField] private float hitPointsPercentRegenSpeed = 0.1f;
     [SerializeField] private float physicalDefense = 10f;
     [SerializeField] private float magicDefense = 10f;
     [SerializeField] private float damageReduction = 0f;
@@ -21,6 +23,8 @@ public class UnitHealth : UnitModule, IDamageReceiver
     public float MagicDefense => magicDefense;
 
     public bool isAlive => hitPoints > 0f;
+
+    private float regenDeltaTime = 1f;
 
     public UnityAction<IAttackable> onDie;
     public UnityAction<IAttackable> onDamageTaken;
@@ -38,7 +42,18 @@ public class UnitHealth : UnitModule, IDamageReceiver
 
     public override void OnTick(float deltaInterval)
     {
-
+        if (isAlive)
+        {
+            if (hitPoints < maxHitPoints)
+            {
+                regenDeltaTime -= deltaInterval;
+                if (regenDeltaTime <= 0f)
+                {
+                    Heal(new HealInfo(hitPointsRegenSpeed + (hitPointsPercentRegenSpeed / 100f * hitPoints)));
+                    regenDeltaTime = 1f;
+                }
+            }
+        }
     }
 
     public void Heal(HealInfo healInfo)

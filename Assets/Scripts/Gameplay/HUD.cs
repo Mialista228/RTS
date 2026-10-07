@@ -12,6 +12,7 @@ public class HUD : EruBehaviour
     [SerializeField] private Player player;
     [SerializeField] private string physicalHEX = "FFFFFFFF";
     [SerializeField] private string magicalHEX = "FFFFFFFF";
+    [SerializeField] private Gradient healthColorGradient;
 
     [Space(10f)]
 
@@ -331,6 +332,7 @@ public class HUD : EruBehaviour
             intelligence.text = $"Разум\n{selectedUnit.Intelligence}";
 
             health.text = $"{Mathf.Ceil(selectedUnit.Health)} / {Mathf.Ceil(selectedUnit.MaxHealth)}";
+            health.color = healthColorGradient.Evaluate(selectedUnit.Health / selectedUnit.MaxHealth);
             mana.text = $"{Mathf.Ceil(selectedUnit.Mana)} / {Mathf.Ceil(selectedUnit.MaxMana)}";
 
             for (int i = 0; i < defense.Length; i++)
