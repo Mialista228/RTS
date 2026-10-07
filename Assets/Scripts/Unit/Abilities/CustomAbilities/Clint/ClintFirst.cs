@@ -13,8 +13,7 @@ public class ClintFirst : UnitAbility
     [SerializeField] private int bulletsPerAbility = 5;
     [SerializeField] private LayerMask unitLayer;
     [SerializeField] private bool canCrit = false;
-    [SerializeField] private float baseDamage = 30;
-    [SerializeField] private float deltaDamage = 5;
+    [SerializeField] private UnitStat baseDamage = 30;
     [SerializeField] private float casterDamageMultiplier = 0.7f;
     [SerializeField] private float damageMultiplierPerShotOneTarget = 0.5f;
     [SerializeField] private float maxDistance = 5f;
@@ -60,14 +59,25 @@ public class ClintFirst : UnitAbility
             if (caster.Movement is UnitMovement um)
                 um.DelayedStop(.25f);
         }
-        caster.Abilities.ReduceMana(manaCost);
+        caster.Abilities.ReduceMana(manaCost.GetValue(runtimeProperties.level));
+        DamageInfo damageInfo = default;
+        if (caster.Attack is UnitAttack attack)
+        {
+            damageInfo = attack._DamageType == DamageType.Physical
+                ? attack.GetDamageInfo(canCrit)
+                : attack.GetDamageInfo(DamageType.Physical, canCrit);
+
+            damageInfo.hitSound = null;
+
+            damageInfo.damageAmount = baseDamage.GetValue(runtimeProperties.level) + (damageInfo.damageAmount * casterDamageMultiplier) + Dice.GetRandomValue(diceCount, diceSides);
+        }
         AnimationVFX(caster);
         VFX(caster);
         SFX(caster);
 
         if (validTargets.Count > 0)
         {
-            caster.StartCoroutine(OrderShot(caster, new Dictionary<Unit, int>(), validTargets, 0, 0));
+            caster.StartCoroutine(OrderShot(caster, damageInfo, new Dictionary<Unit, int>(), validTargets, 0, 0));
             HitSFX(caster);
         }
 
@@ -115,7 +125,7 @@ public class ClintFirst : UnitAbility
             caster.SFX.PlaySound(hitSoundName);
     }
 
-    IEnumerator OrderShot(Unit caster, Dictionary<Unit, int> damaged, List<Unit> validTargets, int shotCount, int shotUnit)
+    IEnumerator OrderShot(Unit caster, DamageInfo damageInfo, Dictionary<Unit, int> damaged, List<Unit> validTargets, int shotCount, int shotUnit)
     {
         if (shotCount >= bulletsPerAbility || validTargets.Count == 0)
         {
@@ -130,7 +140,7 @@ public class ClintFirst : UnitAbility
             validTargets.RemoveAt(shotUnit);
             if (validTargets.Count > 0)
             {
-                caster.StartCoroutine(OrderShot(caster, damaged, validTargets, shotCount, shotUnit));
+                caster.StartCoroutine(OrderShot(caster, damageInfo, damaged, validTargets, shotCount, shotUnit));
             }
             yield break;
         }
@@ -148,23 +158,14 @@ public class ClintFirst : UnitAbility
             hit = firstTimeHitEffect;
         }
 
-        DamageInfo damageInfo = default;
-        if (caster.Attack is UnitAttack attack)
-        {
-            damageInfo = attack._DamageType == DamageType.Physical
-                ? attack.GetDamageInfo(canCrit)
-                : attack.GetDamageInfo(DamageType.Physical, canCrit);
-
-            damageInfo.hitSound = null;
-
-            damageInfo.damageAmount = (baseDamage + (damageInfo.damageAmount * casterDamageMultiplier) + Dice.GetRandomValue(diceCount, diceSides)) * multiplier;
-        }
+        DamageInfo rdi = damageInfo;
+        rdi.damageAmount = rdi.damageAmount * multiplier;
 
         GameObject go = caster.Abilities.SpawnObject(projectile, caster.Abilities.ShotPoint.position, caster.Abilities.ShotPoint.rotation);
-        go.GetComponent<ClintFirstProjectile>().Initialize(caster, unit, damageInfo, hit);
+        go.GetComponent<ClintFirstProjectile>().Initialize(caster, unit, rdi, hit);
 
         yield return new WaitForSeconds(shotsTiming[shotCount]);
-        caster.StartCoroutine(OrderShot(caster, damaged, validTargets, shotCount + 1, shotUnit + 1));
+        caster.StartCoroutine(OrderShot(caster, damageInfo, damaged, validTargets, shotCount + 1, shotUnit + 1));
     }
 
     public override void Aim(Unit caster, Vector3 pos, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)

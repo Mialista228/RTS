@@ -20,13 +20,18 @@ MonoBehaviour:
   diceSides: 2
   chargableAbility: 1
   maxCharges: 5
+  maxLevel: 3
   cooldown: 1
-  manaCost: 20
+  manaCost:
+    baseValue: 50
+    flatPerLevel: 5
+    percentPerLevel: 0
   chargeCooldown: 6
   needToAim: 1
   aimName: Straight
   waitTime: 0.5
   holdPlayerAfterCast: 1
+  stopWhenCast: 0
   shotAnimation: Ultimate
   shotVFX: Ultimate
   shotSFX: Ultimate

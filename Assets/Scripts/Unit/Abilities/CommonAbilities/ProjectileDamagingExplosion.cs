@@ -4,7 +4,7 @@ public class ProjectileDamagingExplosion : ProjectileExplosion
 {
     [SerializeField][Min(1)] private int diceCount = 1;
     [SerializeField][Min(2)] private int diceSides = 2;
-    [SerializeField] private float damageAmount = 40f;
+    [SerializeField] private UnitStat damageAmount = 40f;
     [SerializeField] private bool canCrit;
     [SerializeField] private float casterPhysicalDamageMultiplier = 0.5f;
     [SerializeField] private float casterMagicalDamageMultiplier = 0f;
@@ -40,7 +40,7 @@ public class ProjectileDamagingExplosion : ProjectileExplosion
                     pureInfo = attack.GetDamageInfo();
                     break;
             }
-            damageInfo.damageAmount = damageAmount + Dice.GetRandomValue(diceCount, diceSides) + physicalInfo.damageAmount * casterPhysicalDamageMultiplier
+            damageInfo.damageAmount = damageAmount.GetValue(runtimeProperties.level) + Dice.GetRandomValue(diceCount, diceSides) + physicalInfo.damageAmount * casterPhysicalDamageMultiplier
             + magicalInfo.damageAmount * casterMagicalDamageMultiplier + pureInfo.damageAmount * casterPureDamageMultiplier;
 
             damageInfo.critCoefficient = adaptedInfo.critCoefficient;

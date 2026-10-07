@@ -20,8 +20,12 @@ MonoBehaviour:
   diceSides: 2
   chargableAbility: 0
   maxCharges: 0
+  maxLevel: 3
   cooldown: 5
-  manaCost: 20
+  manaCost:
+    baseValue: 50
+    flatPerLevel: 0
+    percentPerLevel: 0
   chargeCooldown: 6
   needToAim: 1
   aimName: Cone
@@ -36,8 +40,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 64
   canCrit: 0
-  baseDamage: 30
-  deltaDamage: 5
+  baseDamage:
+    baseValue: 30
+    flatPerLevel: 0
+    percentPerLevel: 0
   casterDamageMultiplier: 0.7
   damageMultiplierPerShotOneTarget: 0.5
   maxDistance: 5

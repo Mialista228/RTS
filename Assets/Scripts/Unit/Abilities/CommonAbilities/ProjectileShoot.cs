@@ -30,7 +30,7 @@ public class ProjectileShoot : UnitAbility
             if (caster.Movement is UnitMovement um)
                 um.DelayedStop(.25f);
         }
-        caster.Abilities.ReduceMana(manaCost);
+        caster.Abilities.ReduceMana(manaCost.GetValue(runtimeProperties.level));
         caster.Abilities.AbilityUsed(abilityName, waitTime);
         if (caster.Movement is UnitMovement movement) movement.DelayedStop(waitTime);
 
@@ -50,7 +50,7 @@ public class ProjectileShoot : UnitAbility
 
         caster.Abilities.SetDelayedAction(() => { SFX(caster); }, animationSFXDelay);
         caster.Abilities.SetDelayedAction(() => { VFX(caster); }, animationVFXDelay);
-        caster.Abilities.SetDelayedAction(() => { Shoot(caster, direction); }, animationShotDelay);
+        caster.Abilities.SetDelayedAction(() => { Shoot(caster, direction, runtimeProperties); }, animationShotDelay);
     }
     public void SFX(Unit caster)
     {
@@ -72,7 +72,7 @@ public class ProjectileShoot : UnitAbility
             }
         }
     }
-    public void Shoot(Unit caster, Vector3 direction)
+    public void Shoot(Unit caster, Vector3 direction, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
         direction.y = 0f;
 

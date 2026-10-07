@@ -13,12 +13,14 @@ public class AbilityProjectile : EruBehaviour
     private readonly Collider[] hitColliders = new Collider[20];
     private float lifetimeDistanceSquared;
     private Vector3 startPos;
+    private UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties;
 
-    public void Initialize(Unit caster)
+    public void Initialize(Unit caster, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
         this.caster = caster;
         startPos = transform.position;
         lifetimeDistanceSquared = lifetimeDistance * lifetimeDistance;
+        this.runtimeProperties = runtimeProperties;
         AddCustomUpdate();
         init = true;
     }
@@ -48,7 +50,7 @@ public class AbilityProjectile : EruBehaviour
             if (explosionPrefab)
             {
                 GameObject go = Instantiate(explosionPrefab, transform.position, transform.rotation);
-                go.GetComponent<ProjectileExplosion>().Initialize(caster);
+                go.GetComponent<ProjectileExplosion>().Initialize(caster, runtimeProperties);
             }
             Destroy(gameObject);
         }

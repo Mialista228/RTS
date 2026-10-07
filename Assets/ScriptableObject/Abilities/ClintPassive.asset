@@ -22,7 +22,10 @@ MonoBehaviour:
   maxCharges: 0
   maxLevel: 1
   cooldown: 5
-  manaCost: 20
+  manaCost:
+    baseValue: 0
+    flatPerLevel: 0
+    percentPerLevel: 0
   chargeCooldown: 6
   needToAim: 0
   aimName: 
