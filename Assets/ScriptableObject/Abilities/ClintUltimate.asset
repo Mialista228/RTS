@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64aa252fb2676304b911cd37fe605138, type: 3}
+  m_Name: ClintUltimate
+  m_EditorClassIdentifier: 
+  abilityName: "\u041E\u0431\u0441\u0442\u0440\u0435\u043B \u0433\u0440\u0430\u043D\u0430\u0442\u0430\u043C\u0438"
+  icon: {fileID: 21300000, guid: c9be703194cee9646997cc42607fd4e1, type: 3}
+  abilityPassive: 0
+  abilityCustomBinding: 
+  diceCount: 1
+  diceSides: 2
+  chargableAbility: 1
+  maxCharges: 5
+  cooldown: 1
+  manaCost: 20
+  chargeCooldown: 6
+  needToAim: 1
+  aimName: Straight
+  waitTime: 0.5
+  holdPlayerAfterCast: 1
+  shotAnimation: Ultimate
+  shotVFX: Ultimate
+  shotSFX: Ultimate
+  animationShotDelay: 0.3
+  animationVFXDelay: 0.3
+  animationSFXDelay: 0
+  rotateUnitTowardsAim: 1
+  damageAmount: 40
+  projectile: {fileID: 5105005144157678826, guid: 436efe57e6addec43a6a7ac585118a7c, type: 3}

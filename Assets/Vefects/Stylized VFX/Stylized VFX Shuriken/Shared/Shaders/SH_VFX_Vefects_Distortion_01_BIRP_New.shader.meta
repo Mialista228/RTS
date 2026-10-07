@@ -1,0 +1,14 @@
+fileFormatVersion: 2
+guid: 3e26d80c06bb63840b76e40ec5abd0fe
+ShaderImporter:
+  externalObjects: {}
+  defaultTextures:
+  - _CutoutTexture: {fileID: 2800000, guid: 31d89f9ac3a7be24bae1178e0451cab0, type: 3}
+  - _DistortionNoise: {instanceID: 0}
+  - _DistortionDist: {instanceID: 0}
+  - _Cutout: {fileID: 2800000, guid: 6391a7299a883324c9f3f07fd49dcc7b, type: 3}
+  - _texcoord: {instanceID: 0}
+  nonModifiableTextures: []
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

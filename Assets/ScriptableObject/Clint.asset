@@ -1,0 +1,111 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b0979dbe941b1479d063b2c8332285, type: 3}
+  m_Name: Clint
+  m_EditorClassIdentifier: 
+  unitName: "\u041A\u043B\u0438\u043D\u0442"
+  unitNickname: "\u041F\u0440\u0430\u0432\u043E\u0441\u0443\u0434\u0438\u0435 \u0417\u0430\u043F\u0430\u0434\u0430"
+  heroUnit: 1
+  unitDescription: Clint
+  unitPriority: 5
+  movementSurface: 1
+  goldCost: 100
+  lumberCost: 20
+  foodCost: 5
+  moveSpeed:
+    baseValue: 5
+    flatPerLevel: 0
+    percentPerLevel: 0
+  baseHitPoints:
+    baseValue: 800
+    flatPerLevel: 0
+    percentPerLevel: 0
+  baseMana:
+    baseValue: 200
+    flatPerLevel: 0
+    percentPerLevel: 0
+  basePhysicalDefense:
+    baseValue: 3
+    flatPerLevel: 0
+    percentPerLevel: 0
+  baseMagicDefense:
+    baseValue: 3
+    flatPerLevel: 0
+    percentPerLevel: 0
+  diceCount: 1
+  diceSides: 4
+  unitsCanAttack: -1
+  attackRange:
+    baseValue: 5
+    flatPerLevel: 0
+    percentPerLevel: 0
+  attackFrame:
+    baseValue: 0.1
+    flatPerLevel: 0
+    percentPerLevel: 0
+  attackRecoverFrame:
+    baseValue: 0.5
+    flatPerLevel: 0
+    percentPerLevel: 0
+  canCrit: 1
+  critChance:
+    baseValue: 50
+    flatPerLevel: 0
+    percentPerLevel: 0
+  critDMG:
+    baseValue: 200
+    flatPerLevel: 0
+    percentPerLevel: 0
+  projectile: {fileID: 39737842571889031, guid: c1b760f441f8bcf49b5f4cfd974cbe37, type: 3}
+  damageType: 0
+  physical:
+    baseDamage:
+      baseValue: 5
+      flatPerLevel: 2
+      percentPerLevel: 0
+    bonusDamage: 0
+    penetration: 5
+    percentPenetration: 0
+  magical:
+    baseDamage:
+      baseValue: 0
+      flatPerLevel: 0
+      percentPerLevel: 0
+    bonusDamage: 0
+    penetration: 0
+    percentPenetration: 0
+  pure:
+    baseDamage:
+      baseValue: 0
+      flatPerLevel: 0
+      percentPerLevel: 0
+    bonusDamage: 0
+    penetration: 0
+    percentPenetration: 0
+  damageAttribute: 1
+  strength:
+    baseValue: 10
+    flatPerLevel: 0
+    percentPerLevel: 0
+  agility:
+    baseValue: 10
+    flatPerLevel: 0
+    percentPerLevel: 0
+  intelligence:
+    baseValue: 10
+    flatPerLevel: 0
+    percentPerLevel: 0
+  hpPerStrength: 25
+  armorPerAgility: 0.3
+  magicResistPerIntelligence: 0.1
+  manaPerIntelligence: 20
+  unitPrefab: {fileID: 0}

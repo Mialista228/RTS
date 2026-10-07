@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : EruBehaviour
+{
+    void Awake()
+    {
+        
+    }
+
+    void Start()
+    {
+
+    }
+
+    public override void OnTick(float deltaInterval)
+    {
+
+    }
+}

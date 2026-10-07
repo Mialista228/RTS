@@ -1,0 +1,15 @@
+fileFormatVersion: 2
+guid: 540eb69d90c258a4b83b33517074f151
+NativeFormatImporter:
+  externalObjects: {}
+  mainObjectFileID: 2100000
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
+AssetOrigin:
+  serializedVersion: 1
+  productId: 355832
+  packageName: Stylized Fire
+  packageVersion: 1.0.0
+  assetPath: Assets/Vefects/Stylized VFX URP/Demo/Scene/Materials/M_Vefects_Grid_01.mat
+  uploadId: 851796

@@ -1,0 +1,19 @@
+using UnityEngine;
+
+public class #SCRIPTNAME# : UnitModule
+{
+    public override void OnAwake(Unit unit)
+    {
+        base.OnAwake(unit);
+    }
+
+    public override void OnStart()
+    {
+
+    }
+
+    public override void OnTick(float deltaInterval)
+    {
+
+    }
+}

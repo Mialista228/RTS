@@ -1,0 +1,14 @@
+using UnityEngine;
+
+[CreateAssetMenu(fileName = "NewUnitAbility", menuName = "RTS/Unit Ability")]
+public class #SCRIPTNAME# : UnitAbility
+{
+    public override void Init(Unit caster)
+    {
+
+    }
+    public override void Activate(Unit caster)
+    {
+
+    }
+}

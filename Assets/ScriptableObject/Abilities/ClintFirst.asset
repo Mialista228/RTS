@@ -1,0 +1,53 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fcc5b84989eb80a458b98581e708126a, type: 3}
+  m_Name: ClintFirst
+  m_EditorClassIdentifier: 
+  abilityName: "\u0411\u044B\u0441\u0442\u0440\u044B\u0439 \u0432\u044B\u0438\u0433\u0440\u044B\u0448"
+  icon: {fileID: 21300000, guid: 9414ba4dd89c7d44d90f59d20588b2e5, type: 3}
+  abilityPassive: 0
+  abilityCustomBinding: 
+  diceCount: 1
+  diceSides: 2
+  chargableAbility: 0
+  maxCharges: 0
+  cooldown: 5
+  manaCost: 20
+  chargeCooldown: 6
+  needToAim: 1
+  aimName: Cone
+  waitTime: 0.5
+  holdPlayerAfterCast: 0
+  shotAnimation: First
+  shotEffectName: First
+  shotSoundName: First
+  hitSoundName: FirstHit
+  bulletsPerAbility: 5
+  unitLayer:
+    serializedVersion: 2
+    m_Bits: 64
+  canCrit: 0
+  baseDamage: 30
+  deltaDamage: 5
+  casterDamageMultiplier: 0.7
+  damageMultiplierPerShotOneTarget: 0.5
+  maxDistance: 5
+  angle: 30
+  shotsTiming:
+  - 0.1
+  - 0.05
+  - 0.1
+  - 0.1
+  - 0.1
+  projectile: {fileID: 2956745674471171704, guid: 2e1bddf43f3a8c14592fe3be97d892e6, type: 3}
+  firstTimeHitEffect: {fileID: 9142143088812640880, guid: 94422a24504726d47a20c7d375fb6759, type: 3}
+  hitEffect: {fileID: 7248165869747128006, guid: 74132b7c1f50f2f4a9bec0509b094a97, type: 3}

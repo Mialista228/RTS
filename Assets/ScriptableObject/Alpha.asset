@@ -1,0 +1,62 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8b0979dbe941b1479d063b2c8332285, type: 3}
+  m_Name: Alpha
+  m_EditorClassIdentifier: 
+  unitName: Alpha
+  unitNickname: Alpha
+  heroUnit: 1
+  unitDescription: Alpha
+  unitPriority: 5
+  movementSurface: 0
+  goldCost: 100
+  lumberCost: 20
+  foodCost: 5
+  moveSpeed: 5
+  baseHitPoints: 800
+  baseMana: 200
+  basePhysicalDefense: 3
+  baseMagicDefense: 3
+  diceCount: 0
+  diceSides: 0
+  attackRange: 5
+  attackFrame: 0.2
+  attackRecoverFrame: 0.5
+  projectile: {fileID: 0}
+  damageType: 0
+  physical:
+    baseDamage: 0
+    bonusDamage: 0
+    penetration: 0
+    percentPenetration: 0
+  magical:
+    baseDamage: 0
+    bonusDamage: 0
+    penetration: 0
+    percentPenetration: 0
+  pure:
+    baseDamage: 0
+    bonusDamage: 0
+    penetration: 0
+    percentPenetration: 0
+  damageAttribute: 0
+  strength: 10
+  agility: 10
+  intelligence: 10
+  deltaStrength: 2
+  deltaAgility: 2
+  deltaIntelligence: 2
+  hpPerStrength: 25
+  armorPerAgility: 0.3
+  magicResistPerIntelligence: 0.1
+  manaPerIntelligence: 20
+  unitPrefab: {fileID: 0}
