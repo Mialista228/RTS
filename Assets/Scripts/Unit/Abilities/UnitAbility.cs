@@ -13,7 +13,7 @@ public abstract class UnitAbility : ScriptableObject
     public int maxCharges;
     public int maxLevel = 3;
     public float cooldown = 5f;
-    public float manaCost = 20f;
+    public UnitStat manaCost = 20f;
     public float chargeCooldown = 6f;
     public bool needToAim;
     public string aimName;
@@ -21,6 +21,6 @@ public abstract class UnitAbility : ScriptableObject
     public bool holdPlayerAfterCast;
 
     public abstract void Init(Unit caster);
-    public abstract void Activate(Unit caster);
-    public abstract void Aim(Unit caster, Vector3 pos);
+    public abstract void Activate(Unit caster, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default);
+    public abstract void Aim(Unit caster, Vector3 pos, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default);
 }

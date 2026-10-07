@@ -48,4 +48,8 @@ public class UnitSFX : UnitModule
             audioSource.PlayOneShot(clip[Random.Range(0, clip.Length)]);
         }
     }
+    public void PlayCustomSound(AudioClip clip)
+    {
+        audioSource.PlayOneShot(clip);
+    }
 }

@@ -19,7 +19,7 @@ public class ClintPassive : UnitAbility
     {
         caster.Abilities.onAbilityCasted += (value1, value2) => PreparePassive(caster);
     }
-    public override void Activate(Unit caster)
+    public override void Activate(Unit caster, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
 
     }
@@ -129,7 +129,7 @@ public class ClintPassive : UnitAbility
         }
     }
 
-    public override void Aim(Unit caster, Vector3 pos)
+    public override void Aim(Unit caster, Vector3 pos, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
 
     }

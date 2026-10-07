@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a759e45fcd4e2488fc5dbf18221b38, type: 3}
+  m_Name: RockHeavyBash
+  m_EditorClassIdentifier: 
+  flesh:
+  - {fileID: 8300000, guid: 83413bee26c77eb4d93d5d23c6246390, type: 3}
+  - {fileID: 8300000, guid: 95830100a3743b24bb3d2e9369f85e3e, type: 3}
+  - {fileID: 8300000, guid: 9b14f0acf25fb7e48b744eccc686fa01, type: 3}
+  metal:
+  - {fileID: 8300000, guid: 3bb10d5d4f461124282b49066701c9e8, type: 3}
+  - {fileID: 8300000, guid: e63b1e8be67cb3145bf197a249b8f028, type: 3}
+  - {fileID: 8300000, guid: c5c6afa4d70f6ac43a7438b524ca2799, type: 3}
+  stone:
+  - {fileID: 8300000, guid: 6b45bb3d8aa688a428a74b14ebcf50a7, type: 3}
+  - {fileID: 8300000, guid: e4e084ad7d5f6c6458840e7c5cf7af5a, type: 3}
+  - {fileID: 8300000, guid: 2aa72dca60ba05743896f681fdc375fe, type: 3}
+  wood:
+  - {fileID: 8300000, guid: 3e41ad441ff043c4d93667cda0f593db, type: 3}
+  - {fileID: 8300000, guid: 3c8d9ebbba46ff647b7f3158211e28f0, type: 3}
+  - {fileID: 8300000, guid: b52f1ca5184fa1740a2596377586eecf, type: 3}

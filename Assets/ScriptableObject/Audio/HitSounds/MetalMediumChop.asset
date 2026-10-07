@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a759e45fcd4e2488fc5dbf18221b38, type: 3}
+  m_Name: MetalMediumChop
+  m_EditorClassIdentifier: 
+  flesh:
+  - {fileID: 8300000, guid: e2ca42440f3c69e4dab83e5fad989b42, type: 3}
+  - {fileID: 8300000, guid: a37b026dbeadbf94691156487101054d, type: 3}
+  - {fileID: 8300000, guid: 1ec0d599cdd4c4d479714b30463d98fa, type: 3}
+  metal:
+  - {fileID: 8300000, guid: 0e5be6af843cf4c4d88e78d3b549c2df, type: 3}
+  - {fileID: 8300000, guid: fe07fc9454133c8459caa9af233560b8, type: 3}
+  - {fileID: 8300000, guid: 7170fa849b3e103499d614a6a5d09158, type: 3}
+  stone:
+  - {fileID: 8300000, guid: 1f56d93c4eb58b341a7ba3615e3d4810, type: 3}
+  - {fileID: 8300000, guid: 38690d4a45c1e4d45aa34b586de7367c, type: 3}
+  - {fileID: 8300000, guid: 443bf93c694d05a4b87cf4c27c97885f, type: 3}
+  wood:
+  - {fileID: 8300000, guid: 2c5fb6a2a12162e489f7ebb0b3fe2d77, type: 3}
+  - {fileID: 8300000, guid: 28f40d4ad8b76c64f8c915a0197275be, type: 3}
+  - {fileID: 8300000, guid: 7564c4a497e484f45b35cb0944fd3c92, type: 3}

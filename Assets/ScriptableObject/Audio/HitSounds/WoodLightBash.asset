@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a759e45fcd4e2488fc5dbf18221b38, type: 3}
+  m_Name: WoodLightBash
+  m_EditorClassIdentifier: 
+  flesh:
+  - {fileID: 8300000, guid: 35a02fcb8daadaa40afd02b61953bec1, type: 3}
+  - {fileID: 8300000, guid: 179de48516103da4caa23e29006f69aa, type: 3}
+  - {fileID: 8300000, guid: e4651e212f8526b459403900fec55737, type: 3}
+  metal:
+  - {fileID: 8300000, guid: a564321a25fc95b49a5d42bd5bd35916, type: 3}
+  - {fileID: 8300000, guid: 8ae63250c8086d6499e9443473e7cc5d, type: 3}
+  - {fileID: 8300000, guid: 0dd31557826740b4eb4f416680a83ca2, type: 3}
+  stone:
+  - {fileID: 8300000, guid: 5de474e0507fbb347bdd73f62965e867, type: 3}
+  - {fileID: 8300000, guid: 2445c41fa9167e048ac4998846eddf23, type: 3}
+  - {fileID: 8300000, guid: 3659f57e6e6600644984c530b5c9791d, type: 3}
+  wood:
+  - {fileID: 8300000, guid: 18330745d584cb14d9724ec0d8ae3bc2, type: 3}
+  - {fileID: 8300000, guid: e44bf30c75882604bbb725e4716a0a1f, type: 3}
+  - {fileID: 8300000, guid: fb0f92974abdff8469e56cb1454e5afa, type: 3}

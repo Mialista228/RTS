@@ -18,6 +18,13 @@ public class UnitData : ScriptableObject
         Undead,
         Naga
     }
+    public enum UnitBodyType
+    {
+        Flesh,
+        Stone,
+        Metal,
+        Wood
+    }
     public enum DamageAttribute { Strength, Agility, Intelligence }
 
     void OnValidate()
@@ -34,6 +41,7 @@ public class UnitData : ScriptableObject
     public bool heroUnit;
     [TextArea] public string unitDescription;
     public UnitSurface movementSurface = UnitSurface.Ground;
+    public UnitBodyType bodyType = UnitBodyType.Flesh;
 
     [Header("Costs")]
     public uint goldCost = 100;
@@ -57,6 +65,7 @@ public class UnitData : ScriptableObject
 
     [Header("Attacks")]
     public UnitSurface unitsCanAttack;
+    public SurfaceHitSound attackHitSound;
     public UnitStat attackRange = 5f;
     public UnitStat attackFrame = 0.2f;
     public UnitStat attackRecoverFrame = 0.5f;

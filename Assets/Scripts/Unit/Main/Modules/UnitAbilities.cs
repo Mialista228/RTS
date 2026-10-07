@@ -342,15 +342,15 @@ public class UnitAbilities : UnitModule
             {
                 if (abilities[i].abilityPassive == false)
                 {
-                    if (abilities[i].manaCost < mana)
+                    if (abilities[i].manaCost.GetValue(abilityRuntimeProperties[i].level) < mana)
                     {
                         if (abilityRuntimeProperties[i].cooldown <= 0f)
                         {
                             if (abilities[i].chargableAbility == false || (abilities[i].chargableAbility && abilityRuntimeProperties[i].charges > 0))
                                 if (abilities[i].needToAim)
-                                    AimAbility(abilities[i]);
+                                    AimAbility(abilities[i], abilityRuntimeProperties[i]);
                                 else
-                                    abilities[i].Activate(unit);
+                                    abilities[i].Activate(unit, abilityRuntimeProperties[i]);
                         }
                     }
                 }
@@ -362,8 +362,8 @@ public class UnitAbilities : UnitModule
     {
         mana -= value;
     }
-    public void AimAbility(UnitAbility ability)
+    public void AimAbility(UnitAbility ability, AbilityDefaultRuntimeProperties runtimeProperties)
     {
-        StartAim(ability.aimName, (direction) => { ability.Aim(unit, direction); });
+        StartAim(ability.aimName, (direction) => { ability.Aim(unit, direction, runtimeProperties); });
     }
 }

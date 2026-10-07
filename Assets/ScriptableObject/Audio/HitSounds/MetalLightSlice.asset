@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89a759e45fcd4e2488fc5dbf18221b38, type: 3}
+  m_Name: MetalLightSlice
+  m_EditorClassIdentifier: 
+  flesh:
+  - {fileID: 8300000, guid: 429fa907be4c6434e9cdc8a44598547d, type: 3}
+  - {fileID: 8300000, guid: 1a5d9631cd8f8304d93b68a80d3c4a6c, type: 3}
+  - {fileID: 8300000, guid: cea62feb88d2f324da4d4711fbcf95fe, type: 3}
+  metal:
+  - {fileID: 8300000, guid: a1928728eb09e6548b99515cf2a9dca6, type: 3}
+  - {fileID: 8300000, guid: 34dd5f600ff54434b8a2e7fa5226c6ac, type: 3}
+  - {fileID: 8300000, guid: 41742913020ca8a4080aff4dc35e4c35, type: 3}
+  stone:
+  - {fileID: 8300000, guid: 5dfd7c2d57b737149a7f9ba1ca924c9f, type: 3}
+  - {fileID: 8300000, guid: 3886f3fc0cd24a24899168932ab8ca89, type: 3}
+  - {fileID: 8300000, guid: f4fa3ffc2e59d4e44ab1808676b29ef6, type: 3}
+  wood:
+  - {fileID: 8300000, guid: e67da866e7b5f69448592e85a207a0ff, type: 3}
+  - {fileID: 8300000, guid: 6bb0d1cbd1f26cd4b94c66727e79d534, type: 3}
+  - {fileID: 8300000, guid: ca96a8878eaad0042a4a2b346e441ab6, type: 3}

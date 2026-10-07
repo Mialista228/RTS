@@ -19,11 +19,11 @@ public class ProjectileShoot : UnitAbility
     {
 
     }
-    public override void Activate(Unit caster)
+    public override void Activate(Unit caster, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
 
     }
-    public void DelayedShoot(Unit caster, Vector3 direction)
+    public void DelayedShoot(Unit caster, Vector3 direction, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
         if (stopWhenCast && caster != null && caster.Movement != null)
         {
@@ -105,8 +105,8 @@ public class ProjectileShoot : UnitAbility
         }
     }
 
-    public override void Aim(Unit caster, Vector3 pos)
+    public override void Aim(Unit caster, Vector3 pos, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
-        DelayedShoot(caster, pos);
+        DelayedShoot(caster, pos, runtimeProperties);
     }
 }

@@ -27,7 +27,7 @@ public class ClintFirst : UnitAbility
     {
 
     }
-    public override void Activate(Unit caster)
+    public override void Activate(Unit caster, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
         Collider[] cols = new Collider[20];
         int numFound = Physics.OverlapSphereNonAlloc(caster.transform.position, maxDistance, cols, unitLayer);
@@ -155,6 +155,8 @@ public class ClintFirst : UnitAbility
                 ? attack.GetDamageInfo(canCrit)
                 : attack.GetDamageInfo(DamageType.Physical, canCrit);
 
+            damageInfo.hitSound = null;
+
             damageInfo.damageAmount = (baseDamage + (damageInfo.damageAmount * casterDamageMultiplier) + Dice.GetRandomValue(diceCount, diceSides)) * multiplier;
         }
 
@@ -165,9 +167,9 @@ public class ClintFirst : UnitAbility
         caster.StartCoroutine(OrderShot(caster, damaged, validTargets, shotCount + 1, shotUnit + 1));
     }
 
-    public override void Aim(Unit caster, Vector3 pos)
+    public override void Aim(Unit caster, Vector3 pos, UnitAbilities.AbilityDefaultRuntimeProperties runtimeProperties = default)
     {
         caster.transform.rotation = Quaternion.LookRotation(pos);
-        Activate(caster);
+        Activate(caster, runtimeProperties);
     }
 }

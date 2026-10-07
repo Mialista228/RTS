@@ -99,6 +99,9 @@ public class UnitHealth : UnitModule, IDamageReceiver
 
         HUD.DamageTaken(transform, new DamageShortInfo(finalDamage, damageInfo.critCoefficient, damageInfo.damageType));
 
+        if (_Unit.SFX && damageInfo.hitSound != null)
+            _Unit.SFX.PlayCustomSound(damageInfo.hitSound.GetClip(_Unit.UnitData.bodyType));
+
         if (!isAlive)
         {
             OnDeath(attacker);

@@ -10,11 +10,16 @@ public class UnitProjectile : EruBehaviour
     private Transform targetTransform;
     private bool initialized;
     private float dieTime;
+    private Unit unit;
 
     public void Init(IAttackable attacker, IDamageReceiver target, Transform targetTransform)
     {
         this.target = target;
         this.attacker = attacker;
+        if (attacker is UnitAttack attack)
+        {
+            unit = attack._Unit;
+        }
         this.targetTransform = targetTransform;
         initialized = true;
     }

@@ -75,7 +75,7 @@ public class UnitAttack : UnitModule, IAttackable
 
     public DamageInfo GetDamageInfo(DamageType damageType, bool crit = false)
     {
-        return new DamageInfo(GetUnitAttackStats(damageType).CalculateDamage(), 1f + (crit ? GetCritCoefficient / 100f : 0f), GetUnitAttackStats(damageType).penetration, GetUnitAttackStats(damageType).percentPenetration, damageType);
+        return new DamageInfo(GetUnitAttackStats(damageType).CalculateDamage(), 1f + (crit ? GetCritCoefficient / 100f : 0f), GetUnitAttackStats(damageType).penetration, GetUnitAttackStats(damageType).percentPenetration, damageType, unit.UnitData.attackHitSound);
     }
     public DamageInfo GetDamageInfo(bool crit = false)
     {

@@ -16,11 +16,12 @@ MonoBehaviour:
   unitNickname: "\u041F\u0440\u0430\u0432\u043E\u0441\u0443\u0434\u0438\u0435 \u0417\u0430\u043F\u0430\u0434\u0430"
   heroUnit: 1
   unitDescription: Clint
-  unitPriority: 5
   movementSurface: 1
+  bodyType: 0
   goldCost: 100
   lumberCost: 20
   foodCost: 5
+  unitPriority: 5
   moveSpeed:
     baseValue: 5
     flatPerLevel: 0
@@ -29,8 +30,24 @@ MonoBehaviour:
     baseValue: 800
     flatPerLevel: 0
     percentPerLevel: 0
+  baseHitPointRegen:
+    baseValue: 1
+    flatPerLevel: 0
+    percentPerLevel: 0
+  baseHitPointPercentRegen:
+    baseValue: 0.1
+    flatPerLevel: 0
+    percentPerLevel: 0
   baseMana:
     baseValue: 200
+    flatPerLevel: 0
+    percentPerLevel: 0
+  baseManaRegen:
+    baseValue: 1
+    flatPerLevel: 0
+    percentPerLevel: 0
+  baseManaPercentRegen:
+    baseValue: 0.1
     flatPerLevel: 0
     percentPerLevel: 0
   basePhysicalDefense:
@@ -41,9 +58,11 @@ MonoBehaviour:
     baseValue: 3
     flatPerLevel: 0
     percentPerLevel: 0
+  visionDistance: 5
   diceCount: 1
   diceSides: 4
   unitsCanAttack: -1
+  attackHitSound: {fileID: 11400000, guid: 30561ea50c076f847a69d0b66d682a10, type: 2}
   attackRange:
     baseValue: 5
     flatPerLevel: 0
