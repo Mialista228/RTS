@@ -20,6 +20,7 @@ public class UnitVFX : UnitModule
     private static readonly int MoveHash = Animator.StringToHash("Move");
     private static readonly int AttackHash = Animator.StringToHash("BasicAttack");
     private static readonly int AttackIndexHash = Animator.StringToHash("BasicAttackIndex");
+    private static readonly int UnitSpeedHash = Animator.StringToHash("UnitSpeed");
     private int attackIndex;
     public override void OnAwake(Unit unit)
     {
@@ -55,6 +56,7 @@ public class UnitVFX : UnitModule
             float currentSpeed = unit.Movement.CurrentVelocity.magnitude;
             moveValue = Mathf.InverseLerp(0f, unit.Movement.MoveSpeed, currentSpeed);
 
+            targetAnimator.SetFloat(UnitSpeedHash, moveValue);
             targetAnimator.SetFloat(MoveHash, moveValue, dampTime, deltaInterval);
         }
     }

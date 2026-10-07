@@ -27,7 +27,8 @@ public class ProjectileShoot : UnitAbility
     {
         if (stopWhenCast && caster != null && caster.Movement != null)
         {
-            caster.Movement.Stop();
+            if (caster.Movement is UnitMovement um)
+                um.DelayedStop(.25f);
         }
         caster.Abilities.ReduceMana(manaCost);
         caster.Abilities.AbilityUsed(abilityName, waitTime);

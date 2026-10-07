@@ -55,6 +55,11 @@ public class ClintFirst : UnitAbility
         {
             caster.Movement.Stop();
         }
+        if (caster.Movement != null)
+        {
+            if (caster.Movement is UnitMovement um)
+                um.DelayedStop(.25f);
+        }
         caster.Abilities.ReduceMana(manaCost);
         AnimationVFX(caster);
         VFX(caster);
