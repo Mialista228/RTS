@@ -6314,7 +6314,7 @@ MonoBehaviour:
     chargesText: {fileID: 247889496}
     chargesFillImage: {fileID: 1153664345}
   - defaultIcon: {fileID: 0}
-    defaultIconColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
     button: {fileID: 1263954580}
     icon: {fileID: 1748473344}
     executingBorder: {fileID: 1570156812}
@@ -6325,7 +6325,7 @@ MonoBehaviour:
     chargesText: {fileID: 1298465104}
     chargesFillImage: {fileID: 1623422197}
   - defaultIcon: {fileID: 0}
-    defaultIconColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
     button: {fileID: 1654386301}
     icon: {fileID: 457581107}
     executingBorder: {fileID: 473911827}
@@ -6336,7 +6336,7 @@ MonoBehaviour:
     chargesText: {fileID: 1599093782}
     chargesFillImage: {fileID: 860066390}
   - defaultIcon: {fileID: 0}
-    defaultIconColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
     button: {fileID: 131399874}
     icon: {fileID: 563810273}
     executingBorder: {fileID: 1620299579}
@@ -6347,7 +6347,7 @@ MonoBehaviour:
     chargesText: {fileID: 945934913}
     chargesFillImage: {fileID: 1818543473}
   - defaultIcon: {fileID: 0}
-    defaultIconColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
     button: {fileID: 877264760}
     icon: {fileID: 1624610448}
     executingBorder: {fileID: 30154784}
@@ -6358,7 +6358,7 @@ MonoBehaviour:
     chargesText: {fileID: 567958506}
     chargesFillImage: {fileID: 1480913717}
   - defaultIcon: {fileID: 0}
-    defaultIconColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
     button: {fileID: 781299227}
     icon: {fileID: 2147211679}
     executingBorder: {fileID: 1083296567}
@@ -6369,7 +6369,7 @@ MonoBehaviour:
     chargesText: {fileID: 524855708}
     chargesFillImage: {fileID: 1547598212}
   - defaultIcon: {fileID: 0}
-    defaultIconColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
     button: {fileID: 1870559664}
     icon: {fileID: 1575804296}
     executingBorder: {fileID: 291583589}
@@ -6380,7 +6380,7 @@ MonoBehaviour:
     chargesText: {fileID: 1677079602}
     chargesFillImage: {fileID: 882412498}
   - defaultIcon: {fileID: 0}
-    defaultIconColor: {r: 0, g: 0, b: 0, a: 0}
+    defaultIconColor: {r: 1, g: 1, b: 1, a: 1}
     button: {fileID: 943961084}
     icon: {fileID: 1941246380}
     executingBorder: {fileID: 710293256}
@@ -25608,17 +25608,20 @@ MonoBehaviour:
     needDirection: 1
     targetObject: {fileID: 833989152}
   abilityRuntimeProperties:
-  - abilityRuntime: 0
+  - isManaEnough: 0
+    abilityRuntime: 0
     level: 3
     cooldown: 0
     charges: 0
     chargeTimer: 0
-  - abilityRuntime: 0
+  - isManaEnough: 0
+    abilityRuntime: 0
     level: 1
     cooldown: 0
     charges: 0
     chargeTimer: 0
-  - abilityRuntime: 0
+  - isManaEnough: 0
+    abilityRuntime: 0
     level: 3
     cooldown: 0
     charges: 0

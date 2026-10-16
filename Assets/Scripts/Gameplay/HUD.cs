@@ -267,10 +267,26 @@ public class HUD : EruBehaviour
         actionButtons[4].executingBorder.SetActive(selectedUnit.Brain.CurrentState == UnitBrain.UnitState.Patrol || selectedUnit.Brain.CurrentState == UnitBrain.UnitState.Follow);
     }
 
+    void UpdateSkillButtons()
+    {
+        if (selectedUnit == null)
+            return;
+        if (selectedUnit.Abilities == null)
+            return;
+        if (selectedUnit.Abilities.RegisteredAbilities.Length == 0)
+            return;
+        for (int i = 0; i < selectedUnit.Abilities.RegisteredAbilities.Length; i++)
+        {
+            actionButtons[AbilitySlotIndices[i]].icon.color =
+            selectedUnit.Abilities.RegisteredAbilities[i].isManaEnough ? actionButtons[AbilitySlotIndices[i]].defaultIconColor : Color.blue;
+        }
+    }
+
     public override void OnTick(float deltaInterval)
     {
         UnitStats();
         UpdateActionButtons();
+        UpdateSkillButtons();
     }
 
     public void DisableActions(bool disable)

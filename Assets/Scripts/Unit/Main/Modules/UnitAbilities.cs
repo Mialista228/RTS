@@ -35,6 +35,7 @@ public class UnitAbilities : UnitModule
     [System.Serializable]
     public struct AbilityDefaultRuntimeProperties
     {
+        public bool isManaEnough;
         [Min(0f)] public float abilityRuntime;
         [Min(0)] public int level;
         [Min(0f)] public float cooldown;
@@ -229,6 +230,7 @@ public class UnitAbilities : UnitModule
         ReloadAbility(deltaInterval);
         ChargableAbility(deltaInterval);
         RegenMana(deltaInterval);
+        CheckIsManaEnough();
 
         if (!isAiming) return;
 
@@ -279,6 +281,12 @@ public class UnitAbilities : UnitModule
                 abilityRuntimeProperties[i].cooldown -= deltaInterval;
             }
         }
+    }
+
+    public void CheckIsManaEnough()
+    {
+        for (int i = 0; i < abilityRuntimeProperties.Length; i++)
+            abilityRuntimeProperties[i].isManaEnough = abilities[i].manaCost.GetValue(abilityRuntimeProperties[i].level) < mana;
     }
 
     public void ChargableAbility(float deltaInterval)
@@ -342,7 +350,7 @@ public class UnitAbilities : UnitModule
             {
                 if (abilities[i].abilityPassive == false)
                 {
-                    if (abilities[i].manaCost.GetValue(abilityRuntimeProperties[i].level) < mana)
+                    if (abilityRuntimeProperties[i].isManaEnough)
                     {
                         if (abilityRuntimeProperties[i].cooldown <= 0f)
                         {
